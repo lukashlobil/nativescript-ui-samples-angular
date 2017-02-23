@@ -8,7 +8,7 @@ import * as applicationModule from "application";
 import { ObservableArray } from "data/observable-array";
 import { DataItem } from "../dataItem";
 import { DataItemService } from "../dataItem.service";
-import listViewAnularModule = require("nativescript-telerik-ui-pro/listview/angular");
+import { RadListViewComponent } from "nativescript-telerik-ui-pro/listview/angular";
 
 @Component({
     moduleId: module.id,
@@ -37,7 +37,7 @@ export class ListviewScrollToIndexHorizontalComponent extends OptionsExampleBase
 
     }
 
-    @ViewChild('myRadListView') listViewComponent: listViewAnularModule.RadListViewComponent;
+    @ViewChild('myRadListView') listViewComponent: RadListViewComponent;
 
     get dataItems(): ObservableArray<DataItem> {
         return this._dataItems;

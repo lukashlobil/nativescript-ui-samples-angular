@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ObservableArray } from "data/observable-array";
 import { DataItem } from "../dataItem";
 import { DataItemService } from "../dataItem.service";
-import listViewModule = require("nativescript-telerik-ui-pro/listview");
+import { RadListView, ListViewEventData } from "nativescript-telerik-ui-pro/listview";
 import * as frameModule from "ui/frame";
 
 @Component({
@@ -28,7 +28,7 @@ export class ListViewSwipeExecuteComponent implements OnInit {
         this._dataItems = new ObservableArray(this._dataItemService.getPostDataItems());
     }
 
-    public onCellSwiping(args: listViewModule.ListViewEventData) {
+    public onCellSwiping(args: ListViewEventData) {
         var swipeLimits = args.data.swipeLimits;
         var currentItemView = args.object;
         var currentView;
@@ -40,7 +40,7 @@ export class ListViewSwipeExecuteComponent implements OnInit {
         }
     }
 
-    public onSwipeCellStarted(args: listViewModule.ListViewEventData) {
+    public onSwipeCellStarted(args: ListViewEventData) {
         var swipeLimits = args.data.swipeLimits;
         var listView = frameModule.topmost().currentPage.getViewById("listView");
 
@@ -49,7 +49,7 @@ export class ListViewSwipeExecuteComponent implements OnInit {
         swipeLimits.right = listView.getMeasuredWidth();
     }
 
-    public onSwipeCellFinished(args: listViewModule.ListViewEventData) {
+    public onSwipeCellFinished(args: ListViewEventData) {
         if (args.data.x > 200) {
             console.log("Perform left action");
         } else if (args.data.x < -200) {
@@ -57,8 +57,8 @@ export class ListViewSwipeExecuteComponent implements OnInit {
         }
     }
 
-    public onItemClick(args: listViewModule.ListViewEventData) {
-        var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
+    public onItemClick(args: ListViewEventData) {
+        var listView = <RadListView>frameModule.topmost().currentPage.getViewById("listView");
         listView.notifySwipeToExecuteFinished();
         console.log("Item click: " + args.itemIndex);
     }

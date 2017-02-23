@@ -3,7 +3,6 @@ import { View } from "ui/core/view";
 import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
 import { Page } from "ui/page";
 import { ActionItem } from "ui/action-bar";
-import sideDrawerModule = require('nativescript-telerik-ui-pro/sidedrawer');
 import { Observable } from "data/observable";
 import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui-pro/sidedrawer/angular";
 
