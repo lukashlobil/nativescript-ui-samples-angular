@@ -4,11 +4,11 @@ import { RadCalendar} from "nativescript-telerik-ui-pro/calendar";
 
 @Component({
     moduleId: module.id,
-    selector: "tk-calendar-programatic-control",
-    templateUrl: "calendar-programatic-control.component.html"
+    selector: "tk-calendar-programmatic-control",
+    templateUrl: "calendar-programmatic-control.component.html"
 })
 @Injectable()
-export class CalendarProgramaticControlComponent implements OnInit {
+export class CalendarProgrammaticControlComponent implements OnInit {
     private _calendar: RadCalendar;
     
     constructor(private _page: Page) {
