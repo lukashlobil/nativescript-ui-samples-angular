@@ -23,6 +23,7 @@ export class ChartSeriesStackedAreaComponent extends OptionsExampleBase implemen
     private _secondSeries: ObservableArray<Country>;
     private _thirdSeries: ObservableArray<Country>;
     private _optionsItems: Array<string>;
+    private _stackMode: string;
 
     constructor(private _page: Page,
         private _optionsService: OptionsService, private _router: Router, private _changeDetectionRef: ChangeDetectorRef, private _dataService: DataService) {
@@ -49,12 +50,20 @@ export class ChartSeriesStackedAreaComponent extends OptionsExampleBase implemen
         return this._thirdSeries;
     }
 
+    get stackMode(): string {
+        return this._stackMode;
+    }
+
+    set stackMode(value: string) {
+        this._stackMode = value;
+    }
+
     ngOnInit() {
         this._chart = <RadCartesianChart>this._page.getViewById("cartesianChart");
         this._firstSeries = new ObservableArray(this._dataService.getFirstSeries());
         this._secondSeries = new ObservableArray(this._dataService.getSecondSeries());
         this._thirdSeries = new ObservableArray(this._dataService.getThirdSeries());
-        this.set("stackMode", "Stack");
+        this.stackMode = "Stack";
     }
 
     ngAfterViewInit() {
@@ -62,15 +71,15 @@ export class ChartSeriesStackedAreaComponent extends OptionsExampleBase implemen
     }
 
     onNoneStackModeSelected() {
-        this.set("stackMode", "None");
+        this.stackMode = "None";
     }
 
     onStackModeSelected() {
-        this.set("stackMode", "Stack");
+        this.stackMode = "Stack";
     }
 
     onStack100ModeSelected() {
-        this.set("stackMode", "Stack100");
+        this.stackMode = "Stack100";
     }
 
     public onNavigatingTo(args) {

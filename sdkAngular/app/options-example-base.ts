@@ -1,18 +1,25 @@
 import * as frameModule from "ui/frame";
 import { Router } from '@angular/router';
-import { Observable } from "data/observable";
 
-export class OptionsExampleBase extends Observable {
-    protected navigationParameters;
+export class OptionsExampleBase {
+    private _navigationParameters;
     protected router: Router;
-    constructor() {
-        super();
-    }
     
+    constructor() {
+    }
+
+    get navigationParameters() {
+        return this._navigationParameters;
+    }
+
+    set navigationParameters(value) {
+        this._navigationParameters = value;
+    }
+
     public onOptionsTapped() {
         this.router.navigate(['/options'], { queryParams: { selectedIndex: this.navigationParameters.selectedIndex, paramName: this.navigationParameters.paramName, items: this.navigationParameters.items } });
     }
-    
+
     public onNavigationButtonTap() {
         frameModule.topmost().goBack();
     }

@@ -17,6 +17,7 @@ import { ObservableArray } from "data/observable-array";
 @Injectable()
 export class ChartSeriesStackedBarComponent extends OptionsExampleBase implements OnInit {
     private _optionsParamName: string;
+    private _stackMode: string;
 
     private _categoricalSource: ObservableArray<Country>;
     private _optionsItems: Array<string>;
@@ -39,6 +40,14 @@ export class ChartSeriesStackedBarComponent extends OptionsExampleBase implement
         return this._categoricalSource;
     }
 
+    get stackMode(): string {
+        return this._stackMode;
+    }
+
+    set stackMode(value: string) {
+        this._stackMode = value;
+    }
+
     ngOnInit() {
         this._categoricalSource = new ObservableArray(this._dataService.getCategoricalSource());
         this.onStack100ModeSelected();
@@ -49,15 +58,15 @@ export class ChartSeriesStackedBarComponent extends OptionsExampleBase implement
     }
 
     onNoneStackModeSelected() {
-        this.set("stackMode", "None");
+        this.stackMode = "None";
     }
 
     onStackModeSelected() {
-        this.set("stackMode", "Stack");
+        this.stackMode = "Stack";
     }
 
     onStack100ModeSelected() {
-        this.set("stackMode", "Stack100");
+        this.stackMode = "Stack100";
     }
 
     public onNavigatingTo(args) {

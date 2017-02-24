@@ -22,6 +22,7 @@ export class ListviewScrollToIndexHorizontalComponent extends OptionsExampleBase
     private _optionsParamName: string;
     private _dataItems: ObservableArray<DataItem>;
     private _options: Array<string> = ["None", "CenteredHorizontally", "Left", "Right"];
+    private _myScrollPosition: string;
 
     constructor(private _page: Page, private _dataItemService: DataItemService, private _optionsService: OptionsService, private _router: Router) {
         super();
@@ -33,7 +34,7 @@ export class ListviewScrollToIndexHorizontalComponent extends OptionsExampleBase
             this.router = _router;
             this.navigationParameters = { selectedIndex: selectedIndex, paramName: this._optionsParamName, items: this._options };
         }
-                this.set("myScrollPosition", this._options[selectedIndex]);
+                this.myScrollPosition = this._options[selectedIndex];
 
     }
 
@@ -41,6 +42,14 @@ export class ListviewScrollToIndexHorizontalComponent extends OptionsExampleBase
 
     get dataItems(): ObservableArray<DataItem> {
         return this._dataItems;
+    }
+
+    get myScrollPosition(): string {
+        return this._myScrollPosition;
+    }
+
+    set myScrollPosition(value: string) {
+        this._myScrollPosition = value;
     }
 
     ngOnInit() {
@@ -56,19 +65,19 @@ export class ListviewScrollToIndexHorizontalComponent extends OptionsExampleBase
             if (this._optionsService.paramName === this._optionsParamName) {
                 switch (this._optionsService.paramValue) {
                     case this._options[0]:
-                        this.set("myScrollPosition", this._options[0]);
+                        this.myScrollPosition = this._options[0];
                         this.navigationParameters.selectedIndex = 0;
                         break;
                     case this._options[1]:
-                        this.set("myScrollPosition", this._options[1]);
+                        this.myScrollPosition = this._options[1];
                         this.navigationParameters.selectedIndex = 1;
                         break;
                     case this._options[2]:
-                        this.set("myScrollPosition", this._options[2]);
+                        this.myScrollPosition = this._options[2];
                         this.navigationParameters.selectedIndex = 2;
                         break;
                     case this._options[3]:
-                        this.set("myScrollPosition", this._options[3]);
+                        this.myScrollPosition = this._options[3];
                         this.navigationParameters.selectedIndex = 3;
                         break;
                     default:

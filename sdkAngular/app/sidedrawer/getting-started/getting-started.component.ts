@@ -3,7 +3,6 @@ import { View } from "ui/core/view";
 import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
 import { Page } from "ui/page";
 import { ActionItem } from "ui/action-bar";
-import { Observable } from "data/observable";
 import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui-pro/sidedrawer/angular";
 
 @Component({
@@ -13,9 +12,10 @@ import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui-
     styleUrls: ['getting-started.component.css']
 })
 @Injectable()
-export class SideDrawerGettingStartedComponent extends Observable implements OnInit {
+export class SideDrawerGettingStartedComponent implements OnInit {
+    private _mainContentText: string;
+
     constructor(private page: Page, private _changeDetectionRef: ChangeDetectorRef) {
-        super();
     }
 
     @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
@@ -26,9 +26,16 @@ export class SideDrawerGettingStartedComponent extends Observable implements OnI
         this._changeDetectionRef.detectChanges();
     }
 
+    get mainContentText(): string {
+        return this._mainContentText;
+    }
+
+    set mainContentText(value: string) {
+        this._mainContentText = value;
+    }
+
     ngOnInit() {
-        this.set("mainContentText", "SideDrawer for NativeScript can be easily setup in the XML definition of your page by defining main- and drawer-content. The component"
-            + " has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.");
+        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the XML definition of your page by defining main- and drawer-content. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
     }
 
     public openDrawer() {

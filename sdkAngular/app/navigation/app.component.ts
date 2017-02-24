@@ -25,10 +25,9 @@ export function createRouteEntryArray(components) {
 
   for (let component of components) {
     var exampleItem = service.getExampleItemByComponent(EXAMPLEITEMS, component.name);
-    if (!exampleItem) {
-      throw new Error("No ExampleItem named '" + component.name + "' found.");
+    if (exampleItem) {
+      APP_ROUTES.push({ path: exampleItem.path, component: component, data: { title: exampleItem.title } });
     }
-    APP_ROUTES.push({ path: exampleItem.path, component: component, data: { title: exampleItem.title } });
   }
 }
 

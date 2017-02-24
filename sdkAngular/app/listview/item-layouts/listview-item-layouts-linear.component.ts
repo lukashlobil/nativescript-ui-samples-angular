@@ -16,7 +16,6 @@ import { DataItemService } from "../dataItem.service";
 })
 export class ListviewItemLayoutsLinearComponent implements OnInit {
     private _dataItems: ObservableArray<DataItem>;
-    private _layout: ListViewLinearLayout;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef, private _dataItemService: DataItemService) {
     }
