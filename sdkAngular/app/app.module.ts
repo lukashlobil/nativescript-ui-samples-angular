@@ -1,12 +1,14 @@
 // this import should be first in order to load some required settings (like globals and reflect-metadata)
 import { NativeScriptModule } from "nativescript-angular/platform";
+
 // >> using-global-directives
+// --- The built-in 'nativescript-telerik-ui-pro' modules
 import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui-pro/sidedrawer/angular";
 import { NativeScriptUIListViewModule } from "nativescript-telerik-ui-pro/listview/angular";
 import { NativeScriptUICalendarModule } from "nativescript-telerik-ui-pro/calendar/angular";
 import { NativeScriptUIChartModule } from "nativescript-telerik-ui-pro/chart/angular";
 import { NativeScriptUIDataFormModule } from "nativescript-telerik-ui-pro/dataform/angular";
-
+// ---
 // Not required imports, these are used by the nativescript-samples-angular SDK examples
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
