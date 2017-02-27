@@ -1,5 +1,5 @@
 // this import should be first in order to load some required settings (like globals and reflect-metadata)
-import { NativeScriptModule } from "nativescript-angular/platform";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 // >> using-global-directives
 // --- The built-in 'nativescript-telerik-ui-pro' modules
