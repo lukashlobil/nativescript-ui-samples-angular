@@ -11,8 +11,8 @@ import { NativeScriptUIDataFormModule } from "nativescript-telerik-ui-pro/datafo
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { AppComponent, createRouteEntryArray, APP_ROUTES } from "./navigation/app.component";
-import { AppExampleComponents } from "./navigation/appExamples";
+import { AppComponent } from "./navigation/app.component";
+import { APP_ROUTES, EXAMPLES_COMPONENTS } from "./app.routes";
 import { OptionsService } from "./navigation/options/options.service";
 import { ExampleItemService } from "./navigation/exampleItemService.service";
 import { ExamplesListDepthComponents } from "./navigation/examples-list/examples-list.component";
@@ -29,10 +29,6 @@ if (applicationModule.android) {
     });
 }
 
-// >> (hide)
-createRouteEntryArray(AppExampleComponents);
-// << (hide)
-
 @NgModule({
     bootstrap: [
         AppComponent
@@ -41,8 +37,8 @@ createRouteEntryArray(AppExampleComponents);
         COMMON_DIRECTIVES,
         AppComponent,
         ExamplesListDepthComponents,
-        AppExampleComponents,
-        OptionsComponent
+        OptionsComponent,
+        EXAMPLES_COMPONENTS,
     ],
     imports: [
         NativeScriptModule,
