@@ -45,9 +45,6 @@ module.exports = function (platform, destinationApp) {
             "./bundle",
         ]),
 
-        // Exclude explicitly required but never declared in XML elements. 
-        // Loader nativescript-dev-webpack/tns-xml-loader should be added for *.xml/html and *.ts files.
-        new nsWebpack.ExcludeUnusedElementsPlugin(),
 
         //Angular AOT compiler
         new AotPlugin({
@@ -111,8 +108,7 @@ module.exports = function (platform, destinationApp) {
                 {
                     test: /\.html$|\.xml$/,
                     loaders: [
-                        "raw-loader",
-                        "nativescript-dev-webpack/tns-xml-loader",
+                        "raw-loader"
                     ]
                 },
                 // Root app.css file gets extracted with bundled dependencies
@@ -136,7 +132,6 @@ module.exports = function (platform, destinationApp) {
                 {
                     test: /\.ts$/,
                     loaders: [
-                        "nativescript-dev-webpack/tns-xml-loader",
                         "nativescript-dev-webpack/tns-aot-loader",
                         "@ngtools/webpack",
                     ]
