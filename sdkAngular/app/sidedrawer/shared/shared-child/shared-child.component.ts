@@ -12,7 +12,6 @@ import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui-
 	selector: "tk-sidedrawer-shared-child",
 	templateUrl: 'shared-child.component.html'
 })
-@Injectable()
 export class SideDrawerChildComponent extends Observable implements OnInit {
 	constructor(private page: Page, private _changeDetectionRef: ChangeDetectorRef) {
 		super();

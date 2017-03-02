@@ -23,6 +23,7 @@ import { COMMON_DIRECTIVES } from './navigation/directives';
 import * as applicationModule from "application";
 import * as frescoModule from "nativescript-fresco";
 import { TNSFrescoModule } from "nativescript-fresco/angular";
+import {SideDrawerChildComponent} from './sidedrawer/shared/shared-child/shared-child.component';
 
 if (applicationModule.android) {
     applicationModule.on("launch", () => {
@@ -48,7 +49,8 @@ createRouteEntryArray(AppExampleComponents);
         ExamplesListDepth2Component,
         ExamplesListDepth3Component,
         AppExampleComponents,
-        OptionsComponent
+        OptionsComponent,
+        SideDrawerChildComponent
     ],
     imports: [
         NativeScriptModule,
