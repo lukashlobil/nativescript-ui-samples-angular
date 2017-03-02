@@ -370,6 +370,11 @@ export var EXAMPLEITEMS: ExampleItem[] = [
                         "path": "SideDrawerEventsComponent",
                         "subItems": []
                     },
+                    {
+                        "title": "Reusable",
+                        "path": "SideDrawerParentComponent",
+                        "subItems": []
+                    },
                 ]
             },
             {
